@@ -1,0 +1,24 @@
+@use '../abstracts/' as *;
+
+.footer{
+    background:$grayscale-title-active;
+    color:$grayscale-background;
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-block:rem(25.41) rem(10.65);
+        @include underline(0, rem(1), $grayscale-line);
+        li{
+            font-size:rem(16);
+            line-height:rem(32.5);
+        }
+        &__left{padding-left:rem(17.7)}
+    }
+    &__copy{
+        padding:rem(29.93) rem(17) rem(27.95);
+        font-size:rem(13);
+        font-weight:500;
+    }
+
+
+}

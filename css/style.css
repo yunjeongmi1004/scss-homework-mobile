@@ -1,4 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
 /* Colors */
 /* Effects */
+/* Reset */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+blockquote,
+pre,
+code,
+address,
+ul,
+ol,
+li,
+nav,
+section,
+article,
+header,
+footer,
+main,
+aside,
+dl,
+dt,
+dd,
+table,
+thead,
+tbody,
+tfoot,
+label,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+hr,
+input,
+button,
+textarea,
+object,
+figure,
+figcaption,
+dialog {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+textarea,
+button,
+img,
+fieldset,
+dialog {
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+address,
+cite,
+code,
+em,
+i {
+  font-style: normal;
+  font-weight: normal;
+}
+
+u,
+ins,
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* Normalize */
+input[type=number],
+input[type=text],
+input[type=password],
+input[type=url],
+input[type=email],
+input[type=tel],
+input[type=date],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+input[type=date] {
+  position: relative;
+}
+
+input[type=date]::-webkit-clear-button,
+input[type=date]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+input[type=date]::before {
+  content: attr(data-placeholder);
+  width: 100%;
+}
+
+input[type=date]:valid::before {
+  display: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Epilogue", sans-serif;
+  font-weight: 400;
+}
+
+.align {
+  display: flex;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5.583rem;
+  padding-inline: 1.6rem;
+}
+.header > * {
+  padding-top: 1.7rem;
+}
+.header h1 {
+  width: 14rem;
+}
+
+.footer {
+  background: #222;
+  color: #f8f8f8;
+}
+.footer__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-block: 2.541rem 1.065rem;
+  position: relative;
+}
+.footer__list::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: var(--zindex, 1);
+  content: "";
+  width: 100%;
+  border-bottom: 0.1rem solid #dcdcdc;
+}
+.footer__list li {
+  font-size: 1.6rem;
+  line-height: 3.25rem;
+}
+.footer__list__left {
+  padding-left: 1.77rem;
+}
+.footer__copy {
+  padding: 2.993rem 1.7rem 2.795rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.mt12 {
+  margin-top: 1.2rem;
+}
+
+.mt14 {
+  margin-top: 1.4rem;
+}
+
+.mt52 {
+  margin-top: 5.2rem;
+}
+
+.btn-menu {
+  display: inline-block;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.btn-menu {
+  background: url(../images/ico_menu.svg) no-repeat center;
+}
+
+.thumbnail {
+  overflow: hidden;
+  font-size: 0;
+  padding-inline: 1.6rem;
+}
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-type1 .thumbnail {
+  border-radius: 2.4rem;
+}
 
 /*# sourceMappingURL=style.css.map */

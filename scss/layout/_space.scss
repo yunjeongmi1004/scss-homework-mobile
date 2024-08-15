@@ -1,0 +1,9 @@
+@use '../abstracts/' as *;
+
+$mt:(12, 14, 52);
+
+@each $margin in $mt{
+    .mt#{$margin}{
+        margin-top:rem($margin)
+    }
+}

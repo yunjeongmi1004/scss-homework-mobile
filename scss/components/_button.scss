@@ -1,0 +1,12 @@
+@use '../abstracts/' as *;
+
+%iconButton{
+    display:inline-block;
+    width: rem(24);
+    height: rem(24);
+}
+
+.btn-menu{
+    @include background("ico_menu.svg", center);
+    @extend %iconButton;
+}
