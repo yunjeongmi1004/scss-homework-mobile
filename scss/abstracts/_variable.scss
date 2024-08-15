@@ -7,6 +7,8 @@ $button: linear-gradient(
   rgba(119, 8, 190, 1) 37.75198459625244%,
   rgba(0, 0, 234, 1) 68.48435401916504%
 );
+
+$white:#fff;
 $grayscale-title-active: #222;
 $grayscale-body: #333;
 $grayscale-label: #555;
@@ -38,13 +40,17 @@ $gradient-primary: linear-gradient(
 $gradient-secondery: linear-gradient(
   108.08deg,
   rgba(255, 156, 0, 1) 0%,
-  rgba(255, 219, 3, 1) 100%
+  rgb(135, 126, 76) 100%
 );
 $gradient-accent: linear-gradient(
   114.44deg,
   rgba(0, 56, 245, 1) 0%,
   rgba(159, 3, 255, 1) 100%
 );
+$gradient-accent2: 
+  linear-gradient(#fff, #fff), 
+  linear-gradient(to right, rgba(0, 56, 245, 1) 0%,  rgba(159, 3, 255, 1) 100%)
+;
 $gradient-black: linear-gradient(
   90deg,
   rgba(67, 67, 67, 1) 0%,

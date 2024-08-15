@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+main .btm-type1{
+    padding-inline:rem(16);
+    p{text-align: center}
+    .tit{
+        width:177px;
+        margin:rem(23) auto 0;
+        img{width:100%}
+    }
+    .sub{
+        margin-bottom:rem(27);
+        font-weight:200;
+        font-size:rem(25);
+    }
+    button + button{
+        margin-top:rem(16)
+    }
+}

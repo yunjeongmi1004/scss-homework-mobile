@@ -6,7 +6,23 @@
     height: rem(24);
 }
 
+
+
 .btn-menu{
     @include background("ico_menu.svg", center);
     @extend %iconButton;
+}
+
+.btn-primary{
+    @include button(bg, 40, 8, 700, 16, $gradient-accent, $grayscale-off-white);
+    &.lg{
+        @include button(bg, 56, 8, 700, 20, $gradient-accent, $grayscale-off-white)
+    }
+}
+
+.btn-secondary{
+    @include button(line, 40, 8, 700, 16, $white, $grayscale-label, $gradient-accent2);
+    &.lg{
+        @include button(line, 56, 8, 700, 20, $white, $grayscale-label, $gradient-accent2)
+    }
 }

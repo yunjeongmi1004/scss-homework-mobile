@@ -168,6 +168,15 @@ body {
   font-weight: 400;
 }
 
+.ally-hidden {
+  overflow: hidden;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 .align {
   display: flex;
 }
@@ -189,6 +198,7 @@ body {
 .footer {
   background: #222;
   color: #f8f8f8;
+  margin-top: 8.8rem;
 }
 .footer__list {
   display: grid;
@@ -230,6 +240,10 @@ body {
   margin-top: 5.2rem;
 }
 
+.mt88 {
+  margin-top: 8.8rem;
+}
+
 .btn-menu {
   display: inline-block;
   width: 2.4rem;
@@ -238,6 +252,70 @@ body {
 
 .btn-menu {
   background: url(../images/ico_menu.svg) no-repeat center;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  background: linear-gradient(114.44deg, rgb(0, 56, 245) 0%, rgb(159, 3, 255) 100%);
+  color: #fcfcfc;
+  border: none;
+}
+.btn-primary.lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5.6rem;
+  line-height: 5.6rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  font-size: 2rem;
+  background: linear-gradient(114.44deg, rgb(0, 56, 245) 0%, rgb(159, 3, 255) 100%);
+  color: #fcfcfc;
+  border: none;
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  background: #fff;
+  color: #555;
+  border: 1px solid transparent;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(to right, rgb(0, 56, 245) 0%, rgb(159, 3, 255) 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.btn-secondary.lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5.6rem;
+  line-height: 5.6rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  font-size: 2rem;
+  background: #fff;
+  color: #555;
+  border: 1px solid transparent;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(to right, rgb(0, 56, 245) 0%, rgb(159, 3, 255) 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 
 .thumbnail {
@@ -252,6 +330,28 @@ body {
 }
 .card-type1 .thumbnail {
   border-radius: 2.4rem;
+}
+
+main .btm-type1 {
+  padding-inline: 1.6rem;
+}
+main .btm-type1 p {
+  text-align: center;
+}
+main .btm-type1 .tit {
+  width: 177px;
+  margin: 2.3rem auto 0;
+}
+main .btm-type1 .tit img {
+  width: 100%;
+}
+main .btm-type1 .sub {
+  margin-bottom: 2.7rem;
+  font-weight: 200;
+  font-size: 2.5rem;
+}
+main .btm-type1 button + button {
+  margin-top: 1.6rem;
 }
 
 /*# sourceMappingURL=style.css.map */

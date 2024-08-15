@@ -3,6 +3,7 @@
 .footer{
     background:$grayscale-title-active;
     color:$grayscale-background;
+    margin-top:rem(88);
     &__list{
         display: grid;
         grid-template-columns: repeat(2, 1fr);

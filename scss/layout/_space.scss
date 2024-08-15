@@ -1,6 +1,6 @@
 @use '../abstracts/' as *;
 
-$mt:(12, 14, 52);
+$mt:(12, 14, 52, 88);
 
 @each $margin in $mt{
     .mt#{$margin}{
