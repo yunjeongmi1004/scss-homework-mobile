@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스타일가이드</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/guide.css">
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 
     <main>
 
-        <div class="card-type1 mt52">
+        <!-- <div class="card-type1 mt52">
             <div class="thumbnail">
                 <img src="../images/thum_card1.png" alt="" />
             </div>
@@ -28,35 +29,109 @@
 
         <div class="btm-type1">
             <p class="tit"><img src="../images/logo.svg" alt="open art"></p>
-            <p class="sub">The New Creative Economy</p>
+            <p class="sub">
+                <em>The</em> 
+                <em>New</em> 
+                <em>Creative</em>
+                <em>Economy</em>
+            </p>
             <button type="button" class="btn-primary lg">
-                Earn now
+                (다음주학습후 수정예정)
             </button>
             <button type="button" class="btn-secondary lg">
-                Discover more
+                (다음주학습후 수정예정)
             </button>
-        </div>
+        </div> -->
+
+        <details name="guide" open>
+            <summary>Form 가이드</summary>
+            <div>
+                <h2>Text input</h2>
+                <div>
+                    Initial 
+                    <div class="input-wrap">
+                        <input type="text" class="input" placeholder="First name"/>
+                        <label class="input-tit">Enter your name</label>
+                        <button type="button" class="btn-textdel" aria-label="글지우기"></button>
+                    </div>
+                    <br>Typing
+                    <div class="input-wrap">
+                        <input type="text" class="input" placeholder="First name"/>
+                        <label class="input-tit">Enter your name</label>
+                    </div>
+                    <br>disabled
+                    <div class="input-wrap">
+                        <input type="text" class="input" placeholder="First name" disabled />
+                        <label class="input-tit">Enter your name</label>
+                    </div>
+                    <br>Caption
+                    <div class="input-wrap">
+                        <input type="text" class="input active" placeholder="First name" />
+                        <label class="input-tit">Enter your name</label>
+                        <span class="input-caption">Here’s a hint that might help you.</span>
+                    </div>
+                    <br>Success
+                    <div class="input-wrap success">
+                        <input type="text" class="input active" placeholder="First name" value="Your Name" />
+                        <label class="input-tit">Enter your name</label>
+                        <span class="input-caption">Success message!</span>
+                    </div>
+                    <br>Error
+                    <div class="input-wrap error">
+                        <input type="text" class="input active" placeholder="First name" value="Your Name" />
+                        <label class="input-tit">Enter your name</label>
+                        <span class="input-caption">Error message!</span>
+                    </div>
+                </div>
+                <h2>Select</h2>
+                <label for="select1">default</label>
+                <select name="select1" id="select1" class="select">
+                    <option value="">Initial</option>
+                </select>
+                <label for="select2">disabled</label>
+                <select name="select2" id="select2" class="select" disabled>
+                    <option value="">Disabled</option>
+                </select>
+                <h2>CheckBox</h2>
+                <input type="checkbox" class="check-type1" id="check1_1" /><label for="check1_1">선택1</label>
+                <input type="checkbox" class="check-type1"  id="check1_2" checked/><label for="check1_2">선택2</label>
+                <br>
+                <input type="checkbox" class="check-type2" id="check2_1" /><label for="check2_1">선택1</label>
+                <input type="checkbox" class="check-type2"  id="check2_2" checked/><label for="check2_2">선택2</label>
+            </div>
+        </details>
     </main>
 
     
+
+
     <footer class="footer">
         <div class="footer__list">
             <ul class="footer__list__left">
-                <li><a href="" area-label="Instagram">Instagram</a></li>
-                <li><a href="" area-label="Twitter">Twitter</a></li>
-                <li><a href="" area-label="Discord">Discord</a></li>
-                <li><a href="" area-label="Blog">Blog</a></li>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Discord</a></li>
+                <li><a href="">Blog</a></li>
             </ul>
             <ul class="footer__list__right">
-                <li><a href="" area-label="About">About</a></li>
-                <li><a href="" area-label="Community Guidelines">Community Guidelines</a></li>
-                <li><a href="" area-label="Terms of Service">Terms of Service</a></li>
-                <li><a href="" area-label="Privacy">Privacy</a></li>
-                <li><a href="" area-label="Careers">Careers</a></li>
-                <li><a href="" area-label="Help">Help</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Community Guidelines</a></li>
+                <li><a href="">Terms of Service</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Careers</a></li>
+                <li><a href="">Help</a></li>
             </ul>
         </div>
         <p class="footer__copy">© 2021 Openart</p>
     </footer>
+
+    <script>
+        let input =  document.querySelectorAll('.input');
+        input.forEach((item)=>{
+            item.addEventListener('keydown',()=>{
+                item.classList.add('active');
+            })
+        })
+    </script>
 </body>
 </html>

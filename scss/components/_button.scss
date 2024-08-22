@@ -26,3 +26,7 @@
         @include button(line, 56, 8, 700, 20, $white, $grayscale-label, $gradient-accent2)
     }
 }
+.btn-textdel{
+    @include background("btn_input_close.svg", center);
+    @extend %iconButton;
+}

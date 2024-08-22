@@ -1,0 +1,239 @@
+@use "../abstracts/" as *;
+@use "sass:list";
+
+$formSetting: (
+    "height":rem(56),
+    "border":rem(1) solid $grayscale-input-bg,
+    "borderRadius":rem(8),
+    "bgColor":$grayscale-input-bg,
+    "paddingInline":rem(24),
+    "fontColor":$grayscale-label,
+    "fontSize":rem(16),
+    "fontWeight":500,
+    "lineHeight":rem(24),
+    "letterSpacing":rem(-.5),
+    "placeholderColor":$grayscale-label,
+    "disableBgColor":rgba($grayscale-input-bg, .5),
+    "focusColor":$grayscale-label,
+    "activeBgcolor":$grayscale-off-white,
+    "inputTitcolor":$grayscale-placehoder,
+    "captionColor": $grayscale-placehoder,
+    "captionFontSize" : rem(13),
+    "success" : $success-default,
+    "error" : $error-default,
+);
+
+$selectSetting:(
+    "bgUrl":"btn_select.svg",
+    "iconPosition":rem(12),
+    "bgWidth":24,
+    "paddingInline":12,
+    "bgColor":$grayscale-input-bg,
+    "selectHeight":rem(45),
+    "fontColor":$grayscale-body,
+    "focusColor":$primary-default,
+    "activeBgcolor":$grayscale-input-bg,
+);
+
+// ****선생님께 질문사항이 있습니다****
+// 이 주석을 봐주신다면 피드백때 말해주시면 감사하겠습니다.
+// formSetting 이랑 select 디자인이랑 높이값이나 패딩값 등이 달라서 ,
+// 제가 지금 적용한 방식은 일단 선생님과 저번 학습때 작업한대로 했는데요.
+// 고민한 방식이
+// 1. formSetting / selectSetting 을 라디오 체크박스 형식처럼 객체(?) 스타일로 작업해서 리스트로 뿌려준다.
+// 2. formSetting 과 selectSetting 아예 분리해서 따로따로 적용한다.
+// 3. formSetting 으로 기본 베이스를 잡고 + selectSetting을 선언한다(현재적용)
+
+// 이런 디자인에선 어떤방법이 제일 좋은 방식일까요?...
+
+$radioCheckSetting:(
+    1:(
+        "className" : ".check-type1",
+        "borderColor" : $grayscale-placehoder,
+        "borderRadius" : rem(4),
+        "backgorundColor" : $primary-dark-mode,
+        "onImage" : "ico_check.svg",
+        "width" : rem(24),
+        "height":rem(24)
+    ),
+    2:(
+        "className" : ".check-type2",
+        "borderColor" :$primary-dark,
+        "borderRadius" : rem(4),
+        "backgorundColor" : $primary-dark,
+        "onImage" : "ico_check.svg",
+        "width" : rem(24),
+        "height":rem(24)
+    )
+
+);
+
+%form{
+    height:map-get($formSetting, height);
+    border:map-get($formSetting,border);
+    box-sizing: border-box;
+    border-radius:map-get($formSetting,borderRadius);
+    background-color:map-get($formSetting,bgColor);
+    padding-inline:map-get($formSetting, paddingInline);
+    color:map-get($formSetting, fontColor);
+    font-size: map-get($formSetting, fontSize);
+    line-height: map-get($formSetting, lineHeight);
+    letter-spacing: map-get($formSetting, letterSpacing);
+    outline:none;
+    + .input-tit{
+        visibility: hidden;
+        position: absolute;
+        left: rem(24);
+        top: 50%;
+        transform:translateY(-50%);
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        transition: 0.2s ease all;
+        line-height:rem(20);
+    }
+
+    &::placeholder{
+        color:map-get($formSetting, placeholderColor);
+    }
+    &:disabled{
+        opacity:.5;
+    
+    }
+    &:focus{
+        border-color:map-get($formSetting, focusColor);
+        background-color:map-get($formSetting, activeBgcolor);
+    }
+    &.active{
+        padding-top:rem(16);
+        :where(.success) &{
+            border-color:map-get($formSetting, success);
+            background-color:map-get($formSetting, activeBgcolor);
+        }
+        :where(.error) &{
+            border-color:map-get($formSetting, error);
+            background-color:map-get($formSetting, activeBgcolor);
+        }
+        + .input-tit{
+            visibility: visible;
+            top: rem(6);
+            transform:translateY(0);
+            font-size:rem(14);
+            color:map-get($formSetting, inputTitcolor);
+        }
+        :where(.success) & + .input-tit{
+            color:map-get($formSetting, success);
+        }
+        :where(.error) & + .input-tit{
+            color:map-get($formSetting, error);
+        }
+    }
+    :where(.success) &{
+        border-color:map-get($formSetting, success);
+        background-color:map-get($formSetting, activeBgcolor);
+    }
+    :where(.error) &{
+        border-color:map-get($formSetting, error);
+        background-color:map-get($formSetting, activeBgcolor);
+    }
+
+}
+
+%label{
+    display:inline-flex;
+    gap:rem(4);
+    align-items: center;
+
+    color:$grayscale-label;
+    font-size: rem(12);
+    line-height: rem(12);
+    letter-spacing: rem(-.5);
+}
+
+
+.input-wrap{
+    position:relative;
+    font-weight:map-get($formSetting, fontWeight);
+    & > .input-caption{
+        color:map-get($formSetting, captionColor);
+        font-size:map-get($formSetting , captionFontSize);
+        padding-inline:map-get($formSetting, paddingInline);
+        line-height:rem(22);
+    }
+
+    &.success {
+        & > .input-caption{
+            color:map-get($formSetting, success);
+        }
+    }
+
+    &.error {
+        & > .input-caption{
+            color:map-get($formSetting, error);
+        }
+    }
+
+    & > .btn-textdel{
+        @include position(a, right, rem(16), top, 50%);
+    }
+    &:has(.btn-textdel){
+       input{
+        padding-inline:rem(24) rem(56);
+       }
+    }
+
+}
+.input{
+    @extend %form;
+    width:var(--w, 100%);
+
+}
+
+.select{
+    $result:map-get($selectSetting, paddingInline) * 2 + map-get($selectSetting, bgWidth);
+    @extend %form;
+    @include background(map-get($selectSetting, bgUrl), right map-get($selectSetting, iconPosition) center);
+    padding-inline: rem(map-get($selectSetting, paddingInline)) rem($result);
+    appearance: none;
+    width:var(--w, 100%);
+    height:map-get($selectSetting,selectHeight);
+    color:map-get($selectSetting,fontColor);
+    background-color:map-get($selectSetting,bgColor );
+    &:focus{
+        border-color:map-get($selectSetting, focusColor);
+        background-color:map-get($selectSetting, activeBgcolor);
+    }
+}
+
+
+
+
+@mixin Radio($mapName, $index){
+
+    #{map-get($mapName, $index, className)}{
+        @include ally-hidden;
+        + label{
+            @extend %label;
+                &::before{                    
+                    content:'';
+                    width:map-get($mapName, $index, width);
+                    height:map-get($mapName, $index, height);
+                    border:1px solid map-get($mapName, $index, borderColor);
+                    border-radius:map-get($mapName, $index, borderRadius);
+                }
+        }
+        &:checked{
+            + label{
+                &::before{
+                    @include background(map-get($mapName, $index, onImage), center);
+                    background-color:map-get($mapName, $index, backgorundColor);
+                    border:1px solid map-get($mapName, $index, backgorundColor);
+                }
+            }
+        }
+    }
+}
+
+
+@for $idx from 1 through list.length($radioCheckSetting) {
+    @include Radio($radioCheckSetting, $idx);
+}
