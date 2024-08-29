@@ -1,5 +1,52 @@
 @use '../abstracts/' as *;
 
-.card-type1{
-    
+.list-type1{
+    display:flex;
+    align-items: center;
+    gap:rem(30);
+    padding:rem(17) rem(16);
+    border-radius: rem(16);
+    background: $grayscale-off-white;
+    box-shadow: 0 rem(81) rem(106) 0 rgba(0, 0, 0, 0.07), 0 rem(10.142) rem(13.273) 0 rgba(0, 0, 0, 0.03);
+
+    &__text{
+        font-size:rem(16);
+        font-weight:700;
+        color:$grayscale-title-active;
+        + button{margin-left:auto}
+    }
+}
+
+.list-type2{
+    display:grid;
+    grid-template-columns:1fr rem(24);
+    grid-template-rows: rem(48) auto;
+    padding:rem(10) rem(18) rem(12) rem(12);
+    border-radius: rem(24);
+    background: $grayscale-off-white;
+
+    > .btn-external{
+        align-self: center;
+    }
+    & .profile{
+        .tit{
+            line-height:normal;
+        }
+        &__text{
+            margin:rem(4) rem(10);
+        }
+    }
+
+    &__text{
+        padding-left:rem(58);
+        font-size:rem(13);
+        font-weight:500;
+        color:$grayscale-placehoder;
+        strong{
+            margin-right:rem(2);
+            font-size:rem(16);
+            font-weight:700;
+            color:$grayscale-title-active;
+        }
+    }
 }

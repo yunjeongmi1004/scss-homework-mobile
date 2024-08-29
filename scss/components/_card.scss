@@ -1,5 +1,41 @@
 @use '../abstracts/' as *;
 
+.card-type1{
+    &__content{
+        .fs-xl{
+            letter-spacing:rem(0.24)
+        }
+        .align > .align{
+         gap:rem(12)
+        }
+    }
+    &__text{
+        font-size:rem(13);
+        font-weight:500;
+        line-height:rem(20);
+        color:$grayscale-label;
+        margin-top:rem(10);
+    }
+}
+
+
+.card-type2{
+    position:relative;
+    padding:rem(20) rem(20) rem(30);
+    border-radius: 24px;
+    background:$grayscale-off-white;
+    box-shadow: 0 rem(81) rem(106) 0 rgba(0, 0, 0, 0.07), 0 rem(10.142) rem(13.273) 0 rgba(0, 0, 0, 0.03);
+    color:$grayscale-label;
+    .text-type1 + .text-type1{
+        margin-top:rem(18)
+    }
+    & .ico-emoji{
+        @include position(a, top, rem(11), right, rem(11));
+    }
+
+}
+
+
 .thumbnail{
     overflow:hidden;
     font-size:0;

@@ -32,21 +32,10 @@ $success-darkmode: #36ea88;
 $warning-default: #ff6711;
 $warning-dark: #eb3800;
 $warning-darkmode: #ff9922;
-$gradient-primary: linear-gradient(
-  108.08deg,
-  rgba(0, 0, 235, 1) 0%,
-  rgba(0, 75, 251, 1) 86.51434779167175%
-);
-$gradient-secondery: linear-gradient(
-  108.08deg,
-  rgba(255, 156, 0, 1) 0%,
-  rgb(135, 126, 76) 100%
-);
-$gradient-accent: linear-gradient(
-  114.44deg,
-  rgba(0, 56, 245, 1) 0%,
-  rgba(159, 3, 255, 1) 100%
-);
+$gradient-primary:linear-gradient(108deg, #0000EB -2.53%, #004BFB 106.16%);
+
+$gradient-secondery:  linear-gradient(108deg, #FF9C00 -2.53%, #FFDB03 123.11%);
+$gradient-accent:  linear-gradient(114deg, #0038F5 0%, #9F03FF 100%);
 $gradient-accent2: 
   linear-gradient(#fff, #fff), 
   linear-gradient(to right, rgba(0, 56, 245, 1) 0%,  rgba(159, 3, 255, 1) 100%)

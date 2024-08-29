@@ -1,8 +1,59 @@
 
 @use '../abstracts/' as *;
+@use "sass:list";
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
+$typographySetting:(
+    1:(
+        'className' : ".fs-xxxl",
+        'fontSize' : 40,
+        'lineHeight' : 48,
+        'type' : 'display',
+    ),
+    2:(
+        'className' : ".fs-xxl",
+        'fontSize' : 32,
+        'lineHeight' : 36,
+        'type' : 'display',
+    ),
+    3:(
+        "className" : ".fs-xl",
+        "fontSize" : 24,
+        "lineHeight" :32,
+        'type' : 'display',
+    ),
+    4:(
+        "className" : ".fs-lg",
+        "fontSize" : 20,
+        "lineHeight" :28,
+        'type' : 'text',
+    ),
+    5:(
+        "className" : ".fs-base",
+        "fontSize" : 16,
+        "lineHeight" :22,
+        'type' : 'text',
+    ),
+    6:(
+        "className" : ".fs-sm",
+        "fontSize" : 14,
+        "lineHeight" :20,
+        'type' : 'text',
+    ),
+    7:(
+        "className" : ".fs-xs",
+        "fontSize" : 13,
+        "lineHeight" :20,
+        'type' : 'text',
+    ),
+);
 
+$fw:(100, 200, 300, 400, 500, 600, 700, 800, 900);
+@each $fontweight in $fw{
+    .fw#{$fontweight}{
+        font-weight:$fontweight;
+    }
+}
 
 html{
       font-size:62.5%;
@@ -11,8 +62,48 @@ body{
     font-size: 1rem;
     font-family:  "Epilogue", sans-serif;
     font-weight:400;
+    background-color:$grayscale-background;
 }
 
 .ally-hidden{
     @include ally-hidden();
 }
+
+// font gradient
+.fc-secondary{
+    background: $gradient-accent;
+    background-clip: text;
+    color: transparent;
+}
+
+.fc-grayscaletitle{color:$grayscale-title-active}
+
+@mixin typography($varName, $index){
+    #{map-get($varName, $index, className)}{
+        font-size:rem(map-get($varName, $index,fontSize));
+        line-height:rem(map-get($varName, $index, lineHeight));
+        @if #{map-get($varName, $index, type)} == 'display'{
+            letter-spacing:rem(1)
+        }
+    }
+}
+@for $idx from 1 through list.length($typographySetting) {
+    @include typography($typographySetting, $idx);
+}
+
+
+
+.title {
+      @at-root {
+          h2#{&} {
+            color:$grayscale-body;
+            font-size: rem(20);
+            font-weight: 400;
+            line-height: rem(28);
+            strong{
+                font-weight:700;
+                color:$grayscale-title-active;
+            }
+          }
+      }
+  }

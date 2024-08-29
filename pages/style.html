@@ -17,69 +17,294 @@
     </header>
 
     <main>
-
-        <!-- <div class="card-type1 mt52">
-            <div class="thumbnail">
-                <img src="../images/thum_card1.png" alt="" />
+        <details name="guide">
+            <summary>Typography</summary>
+            <div>
+                <p class="fs-xxxl">.fs-xxxl</p>
+                <p class="fs-xxl">.fs-xxl</p>
+                <p class="fs-xl">.fs-xl</p>
+                <p class="fs-lg">.fs-lg</p>
+                <p class="fs-base">.fs-base</p>
+                <p class="fs-sm">.fs-sm</p>
+                <p class="fs-xs">.fs-xs</p>
+                <h2 class="title">h2 > subtitle</h2>
+                <h2 class="title"><strong>h2 > subtitle bold type</strong></h2>
             </div>
-            <div class="card-type1__content">
-                <div class=""></div>
+        </details>
+        <details name="guide">
+            <summary>profile</summary>
+            <div> 
+                <h2>Avatar</h2>
+
+                <a href="" class="photo type1">M</a>
+                <a href="" class="photo type1 new">M</a>
+                <br><br>
+                <a href="" class="photo type2">F</a>
+                <a href="" class="photo type2 new">F</a>
+                <br><br>
+                <a href="" class="photo type3">F</a>
+                <a href="" class="photo type3 new">F</a>
+                <br><br>
+                <a href="" class="photo">
+                    <img src="../images/thum_avatar.svg" alt="" />
+                </a>
+                <a href="" class="photo new">
+                    <img src="../images/thum_avatar.svg" alt="" />
+                </a>
+                <br><br>
+                <a href="" class="photo round-square">
+                    <img src="../images/thum_avatar3.svg" alt="" />
+                </a>
+
+
+                <h2>Avatar + name</h2>
+                <div class="profile">
+                    <a href="" class="photo new">
+                        <img src="../images/thum_avatar.svg" alt="" />
+                    </a>
+                    <div class="profile__text">
+                        <strong class="tit">First & Lastname</strong>
+                    </div>
+                </div>
+                <div class="profile">
+                    <a href="" class="photo new">
+                        <img src="../images/thum_avatar.svg" alt="" />
+                    </a>
+                    <div class="profile__text">
+                        <strong class="tit">First & Lastname</strong>
+                        <span class="sub">Status</span>
+                    </div>
+                </div>
+
+                <h2>Avatar + name (팝업용)</h2>
+                <div class="profile pop">
+                    <a href="" class="photo round-square">
+                        <img src="../images/thum_avatar3.svg" alt="" />
+                    </a>
+                    <div class="profile__text">
+                        <strong class="tit">Epic: Fight (1/4) (2009)</strong>
+                        <span class="sub">@lovetherobot</span>
+                    </div>
+                </div>
+
+                <h2>Avatar + name (열 정렬)</h2>
+                <div class="profile col">
+                    <a href="" class="photo new">
+                        <img src="../images/thum_avatar.svg" alt="" />
+                    </a>
+                    <div class="profile__text">
+                        <strong class="tit">First Name</strong>
+                    </div>
+                </div>
+                <div class="profile col">
+                    <a href="" class="photo lg">
+                        <img src="../images/thum_avatar2.svg" alt="" />
+                    </a>
+                    <div class="profile__text">
+                        <strong class="tit">First Name</strong>
+                    </div>
+                </div>
+
+                <h2>profile round</h2>
+                <div class="profile round">
+                    <a href="" class="photo type1">M</a>
+                    <div class="profile__text">
+                        <strong class="tit">@openart</strong>
+                    </div>
+                </div>
             </div>
-        </div>
+        </details>
+        <details name="guide">
+            <summary>Tags</summary>
+            <div>
+                <div class="tags">
+                    <span>#color</span>
+                    <span>#circle</span>
+                    <span>#black</span>
+                    <span>#art</span>
+                </div>
+            </div>
+        </details>
+        <details name="guide">
+            <summary>Button</summary>
+            <div>
+                <h2>아이콘 버튼</h2>
+                <div class="guide-btngroups">
+                    <button class="btn-menu" type="button"><span class="ally-hidden">메뉴</span></button>
+                    <button class="btn-search" type="button"><span class="ally-hidden">검색</span></button>
+                    <button type="button" class="btn-textdel" aria-label="글지우기"></button>
+                    <button class="btn-external" type="button"><span class="ally-hidden">검색</span></button>
+                </div>
+                <h2>라운드(정방형) 버튼</h2>
+                <div class="guide-btngroups">
+                    <button class="btn-like" type="button"><span class="ally-hidden">좋아요</span></button>
+                    <button class="btn-like active" type="button"><span class="ally-hidden">좋아요</span></button>
+                    <button class="btn-export" type="button"><span class="ally-hidden">공유</span></button>
+                    <button class="btn-more" type="button"><span class="ally-hidden">더보기</span></button>
+                </div>
+                <h2>텍스트 버튼 : 크기</h2>
+                <div class="guide-btngroups">
+                    <a href="" class="btn base">.base</a>
+                    <button class="btn lg">.lg</button>
+                    <button class="btn base fullsize">.fullsize</button>
+                    <button class="btn lg fullsize">.fullsize</button>
+                </div>
+                <h2>텍스트 버튼 : 색상</h2>
+                <div class="guide-btngroups">
+                    <!-- // 버튼 text gradient로 인해 span태그로 textstyle 노출 -->
+                    <a href="" class="btn base primary">
+                        <span>.primary</span>
+                    </a>
+                    <a href="" class="btn base secondary">
+                        <span class="fc-secondary">.secondary</span>
+                    </a>
+                    <a href="" class="btn base secondary">
+                        <span>.secondary</span>
+                    </a>
+                    <a href="" class="btn base subtle">
+                        <span class="fc-secondary">.subtle</span>
+                    </a>
+                    <a href="" class="btn base subtle">
+                        <span>.subtle</span>
+                    </a>
+                </div>
+                <h2>텍스트 버튼 : 아이콘</h2>
+                <a href="" class="btn lg secondary ico1 fullsize">
+                    <span class="fc-grayscaletitle">Load more</span>
+                </a><br><br>
+                <a href="" class="btn lg secondary ico2 fullsize">
+                    <span class="fc-grayscaletitle">Preview</span>
+                </a><br><br>
+                <a href="" class="btn lg primary ico3 fullsize">
+                    <span>Upload</span>
+                </a><br><br>
+                <a href="" class="btn base primary ico4 fullsize">
+                    <span>Processing</span>
+                </a>
+            </div>
+        </details>
+        <details name="guide">
+            <summary>Icon</summary>
+            <div class="guide-btngroups">
+                <i class="ico-list1" aria-label="아이콘"></i>
+                <i class="ico-list2" aria-label="아이콘"></i>
+                <i class="ico-list3" aria-label="아이콘"></i>
+            </div>
+        </details>
+        <details name="guide">
+            <summary>List</summary>
+            <div>
+                <h2>.list-type1</h2>
+                <div class="list-type1">
+                    <i class="ico-list1" aria-label="아이콘"></i>
+                    <p class="list-type1__text">View on Etherscan</p>
+                    <button class="btn-external" type="button"><span class="ally-hidden">검색</span></button>
+                </div>
+                <h2>.list-type2</h2>
+                <div class="list-type2">
+               
+                        <div class="profile">
+                            <a href="" class="photo new">
+                                <img src="../images/thum_avatar.svg" alt="">
+                            </a>
+                            <div class="profile__text">
+                                <strong class="tit">First &amp; Lastname</strong>
+                                <span class="sub">Status</span>
+                            </div>
+                        </div>
+                        <button class="btn-external" type="button"><span class="ally-hidden">검색</span></button>
+                        <p class="list-type2__text">
+                            <strong>1.00 ETH</strong>
+                            <span>$2,683.73</span>
+                        </p>
+                    
 
-        <div class="btm-type1">
-            <p class="tit"><img src="../images/logo.svg" alt="open art"></p>
-            <p class="sub">
-                <em>The</em> 
-                <em>New</em> 
-                <em>Creative</em>
-                <em>Economy</em>
-            </p>
-            <button type="button" class="btn-primary lg">
-                (다음주학습후 수정예정)
-            </button>
-            <button type="button" class="btn-secondary lg">
-                (다음주학습후 수정예정)
-            </button>
-        </div> -->
-
-        <details name="guide" open>
-            <summary>Form 가이드</summary>
+                </div>
+            </div>
+        </details>
+        <details name="guide">
+            <summary>text</summary>
+            <div>
+                <h2 style="background-color:#ffc8be">.text-type1</h2>
+                <div class="text-type1">
+                    <span class="text-type1__title">Sold for</span>
+                    <div class="text-type1__content">
+                        <strong>1.50 ETH</strong>
+                        <span class="price">$2,683.73</span>
+                    </div>
+                </div>
+                <div class="text-type1">
+                    <span class="text-type1__title">Owner by</span>
+                    <div class="text-type1__content">
+                        <div class="profile round">
+                            <a href="" class="photo type3">D</a>
+                            <div class="profile__text">
+                                <strong class="tit">@david</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <h2 style="background-color:#ffc8be">.text-type1.col</h2>
+                <div class="text-type1 col">
+                    <span class="text-type1__title">Reserve Price</span>
+                    <div class="text-type1__content">
+                        <strong>1.50 ETH</strong>
+                        <span class="price">$2,683.73</span>
+                    </div>
+                </div>
+                <br><br>
+                <h2 style="background-color:#ffc8be">.text-type1.col + .text-type1__content.col</h2>
+                <div class="text-type1 col">
+                    <span class="text-type1__title">Reserve Price</span>
+                    <div class="text-type1__content col">
+                        <strong>12</strong>
+                        <span class="fs-xs fw500">hours</span>
+                        <strong>30</strong>
+                        <span class="fs-xs fw500">minutes</span>
+                        <strong>25</strong>
+                        <span class="fs-xs fw500">seconds</span>
+                    </div>
+                </div>
+            </div>
+        </details>
+        <details name="guide">
+            <summary>Form</summary>
             <div>
                 <h2>Text input</h2>
                 <div>
                     Initial 
                     <div class="input-wrap">
-                        <input type="text" class="input" placeholder="First name"/>
-                        <label class="input-tit">Enter your name</label>
+                        <input type="text" name="initial" class="input" placeholder="First name"/>
+                        <label class="input-tit" for="initial">Enter your name</label>
                         <button type="button" class="btn-textdel" aria-label="글지우기"></button>
                     </div>
                     <br>Typing
                     <div class="input-wrap">
-                        <input type="text" class="input" placeholder="First name"/>
-                        <label class="input-tit">Enter your name</label>
+                        <input type="text" name="Typing" class="input" placeholder="First name"/>
+                        <label class="input-tit" for="Typing">Enter your name</label>
                     </div>
                     <br>disabled
                     <div class="input-wrap">
-                        <input type="text" class="input" placeholder="First name" disabled />
-                        <label class="input-tit">Enter your name</label>
+                        <input type="text" name="disabled" class="input" placeholder="First name" disabled />
+                        <label class="input-tit" for="disabled">Enter your name</label>
                     </div>
                     <br>Caption
                     <div class="input-wrap">
-                        <input type="text" class="input active" placeholder="First name" />
-                        <label class="input-tit">Enter your name</label>
+                        <input type="text" name="caption" class="input active" placeholder="First name" />
+                        <label class="input-tit" for="caption">Enter your name</label>
                         <span class="input-caption">Here’s a hint that might help you.</span>
                     </div>
                     <br>Success
                     <div class="input-wrap success">
-                        <input type="text" class="input active" placeholder="First name" value="Your Name" />
-                        <label class="input-tit">Enter your name</label>
+                        <input type="text" name="success" class="input active" placeholder="First name" value="Your Name" />
+                        <label class="input-tit" for="success">Enter your name</label>
                         <span class="input-caption">Success message!</span>
                     </div>
                     <br>Error
                     <div class="input-wrap error">
-                        <input type="text" class="input active" placeholder="First name" value="Your Name" />
-                        <label class="input-tit">Enter your name</label>
+                        <input type="text" name="error" class="input active" placeholder="First name" value="Your Name" />
+                        <label class="input-tit" for="error">Enter your name</label>
                         <span class="input-caption">Error message!</span>
                     </div>
                 </div>
@@ -93,11 +318,15 @@
                     <option value="">Disabled</option>
                 </select>
                 <h2>CheckBox</h2>
-                <input type="checkbox" class="check-type1" id="check1_1" /><label for="check1_1">선택1</label>
+                <input type="checkbox" class="check-type1" id="check1_1"  /><label for="check1_1">선택1</label>
                 <input type="checkbox" class="check-type1"  id="check1_2" checked/><label for="check1_2">선택2</label>
+            
                 <br>
                 <input type="checkbox" class="check-type2" id="check2_1" /><label for="check2_1">선택1</label>
                 <input type="checkbox" class="check-type2"  id="check2_2" checked/><label for="check2_2">선택2</label>
+                <br>
+                <input type="checkbox" class="check-type1"  id="checkdis1" disabled/><label for="checkdis1">선택1</label>
+                <input type="checkbox" class="check-type1"  id="checkdis2"checked disabled/><label for="checkdis2">선택2</label>
             </div>
         </details>
     </main>

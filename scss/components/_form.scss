@@ -24,27 +24,18 @@ $formSetting: (
 );
 
 $selectSetting:(
+    "height" :rem(45),
+    "borderRadius" : rem(8),
+    "bgColor":$grayscale-input-bg,
     "bgUrl":"btn_select.svg",
     "iconPosition":rem(12),
     "bgWidth":24,
     "paddingInline":12,
-    "bgColor":$grayscale-input-bg,
-    "selectHeight":rem(45),
     "fontColor":$grayscale-body,
     "focusColor":$primary-default,
-    "activeBgcolor":$grayscale-input-bg,
+    "borderColor":$grayscale-input-bg,
 );
 
-// ****선생님께 질문사항이 있습니다****
-// 이 주석을 봐주신다면 피드백때 말해주시면 감사하겠습니다.
-// formSetting 이랑 select 디자인이랑 높이값이나 패딩값 등이 달라서 ,
-// 제가 지금 적용한 방식은 일단 선생님과 저번 학습때 작업한대로 했는데요.
-// 고민한 방식이
-// 1. formSetting / selectSetting 을 라디오 체크박스 형식처럼 객체(?) 스타일로 작업해서 리스트로 뿌려준다.
-// 2. formSetting 과 selectSetting 아예 분리해서 따로따로 적용한다.
-// 3. formSetting 으로 기본 베이스를 잡고 + selectSetting을 선언한다(현재적용)
-
-// 이런 디자인에선 어떤방법이 제일 좋은 방식일까요?...
 
 $radioCheckSetting:(
     1:(
@@ -54,7 +45,9 @@ $radioCheckSetting:(
         "backgorundColor" : $primary-dark-mode,
         "onImage" : "ico_check.svg",
         "width" : rem(24),
-        "height":rem(24)
+        "height":rem(24),
+        "disabledColor" :$grayscale-line,
+        "disabledBg":$grayscale-line,
     ),
     2:(
         "className" : ".check-type2",
@@ -63,7 +56,9 @@ $radioCheckSetting:(
         "backgorundColor" : $primary-dark,
         "onImage" : "ico_check.svg",
         "width" : rem(24),
-        "height":rem(24)
+        "height":rem(24),
+        "disabledColor" :$grayscale-line,
+        "disabledBg":$grayscale-line,
     )
 
 );
@@ -86,8 +81,6 @@ $radioCheckSetting:(
         left: rem(24);
         top: 50%;
         transform:translateY(-50%);
-        -moz-transition: 0.2s ease all;
-        -webkit-transition: 0.2s ease all;
         transition: 0.2s ease all;
         line-height:rem(20);
     }
@@ -149,28 +142,25 @@ $radioCheckSetting:(
     letter-spacing: rem(-.5);
 }
 
+%select{
+    outline: none;
+    $result:map-get($selectSetting, paddingInline) * 2 + map-get($selectSetting, bgWidth);
+    height:map-get($selectSetting,height);
+    border-radius:map-get($selectSetting,borderRadius);
+    border:rem(1) solid map-get($selectSetting,borderColor);
+    @include background(map-get($selectSetting, bgUrl), right map-get($selectSetting, iconPosition) center, map-get($selectSetting,bgColor), rem(map-get($selectSetting,bgWidth)));
+    appearance: none;
+    padding-inline: rem(map-get($selectSetting, paddingInline));
+    color:map-get($selectSetting,fontColor);
+    &:focus{
+        border-color:map-get($selectSetting,focusColor);
+
+    }
+}
 
 .input-wrap{
     position:relative;
     font-weight:map-get($formSetting, fontWeight);
-    & > .input-caption{
-        color:map-get($formSetting, captionColor);
-        font-size:map-get($formSetting , captionFontSize);
-        padding-inline:map-get($formSetting, paddingInline);
-        line-height:rem(22);
-    }
-
-    &.success {
-        & > .input-caption{
-            color:map-get($formSetting, success);
-        }
-    }
-
-    &.error {
-        & > .input-caption{
-            color:map-get($formSetting, error);
-        }
-    }
 
     & > .btn-textdel{
         @include position(a, right, rem(16), top, 50%);
@@ -188,20 +178,22 @@ $radioCheckSetting:(
 
 }
 
-.select{
-    $result:map-get($selectSetting, paddingInline) * 2 + map-get($selectSetting, bgWidth);
-    @extend %form;
-    @include background(map-get($selectSetting, bgUrl), right map-get($selectSetting, iconPosition) center);
-    padding-inline: rem(map-get($selectSetting, paddingInline)) rem($result);
-    appearance: none;
-    width:var(--w, 100%);
-    height:map-get($selectSetting,selectHeight);
-    color:map-get($selectSetting,fontColor);
-    background-color:map-get($selectSetting,bgColor );
-    &:focus{
-        border-color:map-get($selectSetting, focusColor);
-        background-color:map-get($selectSetting, activeBgcolor);
+.input-caption{
+    color:map-get($formSetting, captionColor);
+    font-size:map-get($formSetting , captionFontSize);
+    padding-inline:map-get($formSetting, paddingInline);
+    line-height:rem(22);
+    .success & {
+        color:map-get($formSetting, success);
     }
+    .error &{
+        color:map-get($formSetting, error);
+    }
+}
+
+.select{
+    @extend %select;
+    width:var(--w, 100%);
 }
 
 
@@ -217,7 +209,7 @@ $radioCheckSetting:(
                     content:'';
                     width:map-get($mapName, $index, width);
                     height:map-get($mapName, $index, height);
-                    border:1px solid map-get($mapName, $index, borderColor);
+                    border:rem(1) solid map-get($mapName, $index, borderColor);
                     border-radius:map-get($mapName, $index, borderRadius);
                 }
         }
@@ -226,8 +218,22 @@ $radioCheckSetting:(
                 &::before{
                     @include background(map-get($mapName, $index, onImage), center);
                     background-color:map-get($mapName, $index, backgorundColor);
-                    border:1px solid map-get($mapName, $index, backgorundColor);
+                    border:rem(1) solid map-get($mapName, $index, backgorundColor);
                 }
+            }
+            &:disabled{
+                + label{
+                    &::before{
+                      background-color:map-get($mapName, $index, disabledColor)
+                    }  
+                  }
+            }
+        }
+        &:disabled{
+            + label{
+              &::before{
+                border-color:map-get($mapName, $index, disabledColor)
+              }  
             }
         }
     }

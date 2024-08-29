@@ -13,4 +13,8 @@
         width:rem(140);
         
     }
+    &__right{
+        display:flex;
+        gap:rem(29);
+    }
 }

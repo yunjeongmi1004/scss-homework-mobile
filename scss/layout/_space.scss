@@ -1,9 +1,14 @@
 @use '../abstracts/' as *;
 
-$mt:(12, 14, 52, 88);
-
+$mt:(5, 12, 14, 16, 18, 20, 23, 25, 28, 36, 52, 88);
+$mx:(16, 20, 30);
 @each $margin in $mt{
     .mt#{$margin}{
         margin-top:rem($margin)
+    }
+}
+@each $margin in $mx{
+    .mx#{$margin}{
+        margin-inline:rem($margin)
     }
 }

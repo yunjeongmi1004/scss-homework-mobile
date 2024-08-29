@@ -1,0 +1,147 @@
+@use "../abstracts/" as *;
+@use "sass:list";
+
+$photoSetting:(
+    1:(
+        "className" : ".type1",
+        'bgColor':$gradient-secondery,
+        "width" : 48,
+        "borderRadius" : 100,
+    ),
+    2:(
+        "className" : ".type2",
+        'bgColor':$gradient-primary,
+        "width" : 48,
+        "borderRadius" : 100,
+    ),
+    3:(
+        "className" : ".type3",
+        'bgColor':$gradient-accent,
+        "width" : 48,
+        "borderRadius" : 100,
+    ),
+    4:(
+        "className" : ".round-square",
+        'bgColor':null,
+        "width" : 56,
+        "borderRadius" : 16,
+    )
+);
+
+
+%photo{
+    position:relative;
+    display:inline-flex;
+    justify-content:center;
+    aspect-ratio:1;
+    font-size:rem(32);
+    font-weight:700;
+    line-height:rem(56);
+    letter-spacing:rem(1);
+    color: $white;
+    width:rem(48);
+    & img{
+        width:100%;
+        border-radius:inherit;
+    }
+
+}
+
+
+
+@mixin photo($mapName, $index){
+    .photo{
+        @extend %photo;
+        &#{map-get($mapName, $index, className)}{
+            background-image:map-get($mapName, $index, bgColor);
+            width:rem(map-get($mapName, $index, width));
+            border-radius:rem(map-get($mapName, $index, borderRadius));
+        }
+        &.new:after{
+            @include position(a, right, 0, top, 0);
+            content:'';
+            width:rem(12);
+            aspect-ratio: 1;
+            border-radius:rem(100);
+            background-color:$success-default;
+            border:rem(1) solid $white;
+        
+        }
+        &.lg{
+            width:rem(130);
+        }
+    }
+}
+
+@for $idx from 1 through list.length($photoSetting) {
+    @include photo($photoSetting, $idx);
+}
+
+
+
+.profile{
+    display:flex;
+    &__text{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-inline:rem(4);
+        letter-spacing: rem(-0.75);
+    }
+    &.round &__text{
+        display:inline-flex;
+        margin-inline:rem(8)  
+    }
+    &.pop &__text{
+        margin-inline:rem(12);
+    }
+    & .tit{
+        font-size: rem(14);
+        font-weight: 700;
+        line-height: rem(20);
+        color:$grayscale-title-active;
+    }
+    &.pop .tit{
+        font-size:rem(18);
+        line-height:rem(28);
+    }
+    & .sub{
+        font-size: rem(14);
+        font-weight: 500;
+        line-height: rem(20);
+        color:$grayscale-label;
+    }
+    &.pop .sub{
+        font-size:rem(18);
+        font-weight: 400;
+        line-height:rem(26);
+        letter-spacing: rem(0.75);
+    }
+    &.round{
+        display:inline-flex;
+        max-height:rem(40);
+        border-radius:rem(52);
+        background:$grayscale-off-white;
+        padding:rem(4) rem(5);
+        box-shadow:0 rem(81) rem(106) 0 rgba(0, 0, 0, 0.07), 0 rem(10.142) rem(13.273) 0 rgba(0, 0, 0, 0.03);
+        .photo{
+            width:rem(30);
+            font-size:rem(20);
+            line-height:rem(34);
+        }
+    }
+    &.col{
+        flex-direction: column;
+        align-items:center;
+    }
+
+
+}
+
+.myprofile_header{
+    & .cover{
+        @include background("bg_top_cover.jpg", center, null, cover);
+        height:rem(160);
+        margin-bottom:rem(-65);
+    }
+}

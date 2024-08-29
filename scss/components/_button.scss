@@ -1,32 +1,268 @@
 @use '../abstracts/' as *;
+@use "sass:list";
 
 %iconButton{
     display:inline-block;
     width: rem(24);
-    height: rem(24);
+    aspect-ratio: 1;
+    flex-shrink: 0;
+}
+
+%roundButton{
+    display:inline-block;
+    width:rem(40);
+    aspect-ratio: 1;
+    border-radius:rem(100);
+    filter: drop-shadow(0 rem(10.142) rem(13.273) rgba(0, 0, 0, 0.03)) drop-shadow(0 rem(81) rem(106) rgba(0, 0, 0, 0.07));
+    transition: background-image ease(out-quart) 1s;
 }
 
 
+$iconButtonSetting:(
+    1:(
+        'className' : ".btn-menu",
+        'bgUrl' : 'ico_menu.svg'
+    ),
+    2:(
+        'className' : ".btn-textdel",
+        'bgUrl' : 'btn_input_close.svg'
+    ),
+    3:(
+        'className' : ".btn-external",
+        'bgUrl' : 'ico_external.svg'
+    ),
+    4:(
+        'className' : ".btn-search",
+        'bgUrl' : 'ico_search.svg'
+    ),
+    5:(
+        'className' : ".ico-list1",
+        'bgUrl' : 'ico_list_img1.svg'
+    ),
+    6:(
+        'className' : ".ico-list2",
+        'bgUrl' : 'ico_list_img2.svg'
+    ),
+    7:(
+        'className' : ".ico-list3",
+        'bgUrl' : 'ico_list_img3.svg'
+    ),
+);
 
-.btn-menu{
-    @include background("ico_menu.svg", center);
-    @extend %iconButton;
+$roundButtonSetting:(
+    1:(
+        'className' : ".btn-like",
+        'bgUrl' : 'ico_heart',
+        'imgformats' : 'svg',
+        'bgColor' : $white,
+    ),
+    2:(
+        'className' : ".btn-export", 
+        'bgUrl' : 'ico_export',
+        'imgformats' : 'svg',
+        'bgColor' : $white,
+    ),
+    3:(
+        'className' : ".btn-more", 
+        'bgUrl' : 'ico_more',
+        'imgformats' : 'svg',
+        'bgColor' : $white,
+    )
+);
+
+$textButtonSize:(
+    1:(
+        "className": ".base",
+        "height": 40,
+        "fontSize": 16,
+        "borderWidth": 1,
+        "fontWeight": 700,
+    ),
+    2:(
+        "className": ".lg",
+        "height": 56,
+        "fontSize": 20,
+        "borderWidth": 1,
+        "fontWeight": 700,
+    ),
+);
+
+$textButtonColor:(
+    1:(
+        'className' : '.primary',
+        'bgColor' :$gradient-accent,
+        'borderColor' :null,
+        'txcolor' :$grayscale-off-white,
+        'method' : 'bg',
+    ),
+    2:(
+        "className": ".secondary",
+        'bgColor': $gradient-accent,
+        'borderColor' :null,
+        'txcolor' :$grayscale-label,
+        'method' : 'bg',
+    ),
+    3:(
+        "className": ".subtle",
+        'bgColor': $white,
+        'borderColor' :$grayscale-placehoder,
+        'txcolor' :$grayscale-title-active,
+        'method' : 'line',
+    )
+);
+
+$textButtonIcon:(
+    1:(    
+        'className' : '.ico1',
+        'direction' : before,
+        'imgName' : 'ico_plus.svg',
+        'width' : 24,
+        'height' : 24,
+    ),
+    2:(    
+        'className' : '.ico2',
+        'direction' : before,
+        'imgName' : 'ico_view.svg',
+        'width' : 24,
+        'height' : 24,
+    ),
+    3:(    
+        'className' : '.ico3',
+        'direction' : before,
+        'imgName' : 'ico_upload.svg',
+        'width' : 24,
+        'height' : 24,
+    ),
+    4:(    
+        'className' : '.ico4',
+        'direction' : before,
+        'imgName' : 'ico_loading.svg',
+        'width' : 24,
+        'height' : 24,
+    ),
+);
+
+
+// 아이콘만 들어가는 버튼형태
+@mixin iconButton($varName, $index){
+    #{map-get($varName, $index, className)}{
+        @extend %iconButton;
+        @include background(#{map-get($varName, $index, bgUrl)}, center);
+        @content;
+    }
+}
+@for $idx from 1 through list.length($iconButtonSetting) {
+    @include iconButton($iconButtonSetting, $idx);
+}
+@include iconButton($iconButtonSetting, 5) {
+    width:rem(31);
 }
 
-.btn-primary{
-    @include button(bg, 40, 8, 700, 16, $gradient-accent, $grayscale-off-white);
-    &.lg{
-        @include button(bg, 56, 8, 700, 20, $gradient-accent, $grayscale-off-white)
+
+// 둥근 배경내에 아이콘이 들어가는 버튼형태
+@mixin roundButton($varName, $index){
+    #{map-get($varName, $index, className)}{
+        @extend %roundButton;
+        @include background(#{map-get($varName, $index, bgUrl)}+'.'+#{map-get($varName, $index, imgformats)}, center, map-get($varName, $index, bgColor));
+       &.active{
+        @include background(#{map-get($varName, $index, bgUrl)} + '_on.'+#{map-get($varName, $index, imgformats)}, center, map-get($varName, $index, bgColor));
+       }
+    }
+}
+@for $idx from 1 through list.length($roundButtonSetting) {
+    @include roundButton($roundButtonSetting, $idx);
+}
+
+// 텍스트 버튼 사이즈 
+@mixin buttonSize($varName, $index) {
+    &#{map-get($varName, $index, className)} {
+      height: rem(map-get($varName, $index, height));
+      font-size: rem(map-get($varName, $index, fontSize));
+      border: rem(map-get($varName, $index, borderWidth)) solid;
+      font-weight: map-get($varName, $index, fontWeight);
+      & span{z-index:1}
+      & .fc-secondary{font-weight:900}
+    }
+}
+// 텍스트 버튼 컬러
+@mixin buttonColor($varName, $index) {
+    &#{map-get($varName, $index, className)} {
+
+        color:map-get($varName, $index, txcolor);
+        @if #{map-get($varName, $index, method)} == 'line' {
+            border: rem(1) solid map-get($varName, $index, borderColor);
+        }@else if #{map-get($varName, $index, method)} == 'bg' {
+            border:none;
+            background-image:map-get($varName, $index, bgColor);
+        }
+        @if #{map-get($varName, $index, className)} == '.secondary'{
+            &:after{
+                // secondary 버튼의 경우 border가 그라데이션 디자인으로, 
+                // 배경을 그라데이션으로 주고,
+                // :after로 흰색 배경을 주어 선으로 노출되게 생성
+                content: "";
+                position: absolute;
+                left: rem(1);
+                right: rem(1);
+                top: rem(1);
+                bottom: rem(1);
+                border-radius: rem(7);
+                background-color: $white;
+            }
+            
+        }    
     }
 }
 
-.btn-secondary{
-    @include button(line, 40, 8, 700, 16, $white, $grayscale-label, $gradient-accent2);
-    &.lg{
-        @include button(line, 56, 8, 700, 20, $white, $grayscale-label, $gradient-accent2)
+@mixin buttonIcon($varName, $index){
+    &#{map-get($varName, $index, className)}{
+        &::#{map-get($varName, $index, direction)}{
+            @include background(map-get($varName, $index, imgName));
+            position:relative;
+            z-index:2;
+            content:'';
+            width:rem(map-get($varName, $index, width));
+            height:rem(map-get($varName, $index, height));
+            @if #{map-get($varName, $index, className)} == '.ico4'{
+                animation: spin 1.5s linear infinite;
+            }
+        }
     }
 }
-.btn-textdel{
-    @include background("btn_input_close.svg", center);
-    @extend %iconButton;
+
+
+.btn{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:rem(8);
+    box-sizing:border-box;
+    justify-content:center;
+    padding-inline:rem(20);
+    border-radius:rem(8);
+    letter-spacing: rem(0);
+    &.fullsize{
+        width:100%
+    }
+    @for $idx from 1 through list.length($textButtonSize) {
+        @include buttonSize($textButtonSize, $idx);
+    }
+    @for $idx from 1 through list.length($textButtonColor) {
+        @include buttonColor($textButtonColor, $idx);
+    }
+    @for $index from 1 through list.length($textButtonIcon) {
+        @include buttonIcon($textButtonIcon, $index);
+    }
 }
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 이모지 아이콘 */
+.ico-emoji{@include background("ico_emoji.svg", center);display:inline-block;width:29px;height:28px;}
