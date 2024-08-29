@@ -20,5 +20,13 @@
 [name=guide][open] h2 {
   padding-block: 10px;
 }
+[name=guide] .guide-btngroups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  background: var(--GrayScale-Background, #F8F8F8);
+}
 
 /*# sourceMappingURL=guide.css.map */
